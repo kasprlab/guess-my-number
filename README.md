@@ -1,3 +1,16 @@
+## Project Background
+
+This is a small game that was part of JS course by @jonasschmedtman. I decided to redo this game for the following reasons:
+
+- Practice html and css after focusing on JS for sometime
+- Preparation to start building my personal website projects
+- Get used to project flow and using version control (Git and GitHub)
+- Assess my current coding skills
+- Get confidence
+- Practice documentation
+
+&nbsp;
+
 ## Notes:
 
 ### CSS
