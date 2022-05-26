@@ -16,7 +16,9 @@ let highScore;
 
 // step 3: add event listener to check button
 checkBtn.addEventListener("click", function () {
-  if (+guess.value === randomNumber) {
+  if (+guess.value <= 0 || +guess.value > 20 || !guess) {
+    message.textContent = "wrong input. try again";
+  } else if (+guess.value === randomNumber) {
     message.textContent = "win";
     highScore = score;
     document.querySelector(".highscore").textContent = highScore;
@@ -30,3 +32,5 @@ checkBtn.addEventListener("click", function () {
 
   document.querySelector(".score").textContent = score;
 });
+
+console.log("bug");
