@@ -38,5 +38,3 @@ checkBtn.addEventListener("click", function () {
 
   document.querySelector(".score").textContent = score;
 });
-
-console.log("bug");
