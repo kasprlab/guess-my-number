@@ -12,7 +12,7 @@ const checkBtn = document.querySelector(".check");
 //const randomNumber = Math.trunc(Math.random() * 20) + 1;
 const randomNumber = 10;
 let score = 20;
-let highScore;
+let highScore = 0;
 
 // step 3: add event listener to check button
 checkBtn.addEventListener("click", function () {
@@ -37,4 +37,5 @@ checkBtn.addEventListener("click", function () {
   }
 
   document.querySelector(".score").textContent = score;
+  document.querySelector(".highscore").textContent = highScore;
 });
