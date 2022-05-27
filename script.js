@@ -2,15 +2,12 @@ console.log("Hi");
 // step 1: grab the things that will change in the game
 
 const guess = document.querySelector(".guess");
-// const number = document.querySelector(".number").textContent;
+const number = document.querySelector(".number");
 const message = document.querySelector(".message");
-// const score = document.querySelector(".score").textContent;
-// const highscore = document.querySelector(".highscore").textContent;
 const checkBtn = document.querySelector(".check");
 
 // step 2: generate random number
-//const randomNumber = Math.trunc(Math.random() * 20) + 1;
-const randomNumber = 10;
+const randomNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let highScore = 0;
 
@@ -21,6 +18,7 @@ checkBtn.addEventListener("click", function () {
       message.textContent = "wrong input. try again";
     } else if (+guess.value === randomNumber) {
       message.textContent = "win";
+      number.textContent = randomNumber;
       highScore = score;
       document.querySelector(".highscore").textContent = highScore;
     } else if (+guess.value < randomNumber) {
