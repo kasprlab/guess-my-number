@@ -25,3 +25,8 @@ Default setup
 ## Questions
 
 - Why does the designed decided to use header tag ? 🤔
+
+## Things to do:
+
+- add winning ui feature
+- refactoring code with DRY principle
