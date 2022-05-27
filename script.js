@@ -5,9 +5,10 @@ const guess = document.querySelector(".guess");
 const number = document.querySelector(".number");
 const message = document.querySelector(".message");
 const checkBtn = document.querySelector(".check");
+const againBtn = document.querySelector(".again");
 
 // step 2: generate random number
-const randomNumber = Math.trunc(Math.random() * 20) + 1;
+let randomNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let highScore = 0;
 
@@ -36,4 +37,16 @@ checkBtn.addEventListener("click", function () {
 
   document.querySelector(".score").textContent = score;
   document.querySelector(".highscore").textContent = highScore;
+});
+
+// add event listener to again button
+
+againBtn.addEventListener("click", function () {
+  score = 20;
+  randomNumber = Math.trunc(Math.random() * 20) + 1;
+
+  document.querySelector(".score").textContent = score;
+  message.textContent = "start guessing..";
+  number.textContent = "?";
+  guess.value = "";
 });
