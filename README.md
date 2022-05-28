@@ -28,5 +28,5 @@ Default setup
 
 ## Things to do:
 
-- add winning ui feature
-- refactoring code with DRY principle
+- add winning ui feature (done)
+- refactoring code with DRY principle and functional programming

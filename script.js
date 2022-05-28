@@ -1,56 +1,81 @@
-console.log("Hi");
-// step 1: grab the things that will change in the game
-
-const guess = document.querySelector(".guess");
-const number = document.querySelector(".number");
-const message = document.querySelector(".message");
-const checkBtn = document.querySelector(".check");
-const againBtn = document.querySelector(".again");
-
-// step 2: generate random number
-let randomNumber = Math.trunc(Math.random() * 20) + 1;
+let randomNumber;
 let score = 20;
 let highScore = 0;
 
-// step 3: add event listener to check button
+const checkBtn = document.querySelector(".check");
+const againBtn = document.querySelector(".again");
+
+const showMessage = function (message) {
+  document.querySelector(".message").textContent = message;
+};
+
+const showRandomNumber = function (number) {
+  document.querySelector(".number").textContent = number;
+};
+
+const showScore = function (score) {
+  document.querySelector(".score").textContent = score;
+};
+
+const showHighScore = function (highscore) {
+  document.querySelector(".highscore").textContent = highscore;
+};
+
+const resetGuess = function () {
+  document.querySelector(".guess").value = "";
+};
+
+const setBackgroundColor = function (color) {
+  document.querySelector("body").style.backgroundColor = color;
+};
+
+const setNumberWidth = function (width) {
+  document.querySelector(".number").style.width = width;
+};
+
+const setRandomNumber = function () {
+  randomNumber = Math.trunc(Math.random() * 20) + 1;
+};
+
+setRandomNumber();
+
 checkBtn.addEventListener("click", function () {
+  const guess = Number(document.querySelector(".guess").value);
+
   if (score) {
-    if (+guess.value <= 0 || +guess.value > 20 || !guess) {
-      message.textContent = "wrong input. try again";
-    } else if (+guess.value === randomNumber) {
-      message.textContent = "win";
-      number.textContent = randomNumber;
-      document.querySelector("body").style.backgroundColor = "#60b347";
-      document.querySelector(".number").style.width = "25rem";
+    if (guess <= 0 || guess > 20) {
+      showMessage("⛔️ Wrong input. Try again!");
+    } else if (guess === randomNumber) {
       highScore = score;
-      document.querySelector(".highscore").textContent = highScore;
-    } else if (+guess.value < randomNumber) {
-      message.textContent = "too low";
-      score--;
-    } else if (+guess.value > randomNumber) {
-      message.textContent = "too high";
+
+      showRandomNumber(randomNumber);
+      showMessage("You win! 🏆");
+      showHighScore(highScore);
+      setBackgroundColor("#60b347");
+      setNumberWidth("25rem");
+    } else if (guess !== randomNumber) {
+      guess < randomNumber
+        ? showMessage("📉 Too low")
+        : showMessage("📈 Too high");
       score--;
     }
   }
 
   if (!score) {
-    message.textContent = "You lose the game";
+    showMessage("💥 You lost the game!");
   }
 
-  document.querySelector(".score").textContent = score;
-  document.querySelector(".highscore").textContent = highScore;
+  showScore(score);
 });
-
-// add event listener to again button
 
 againBtn.addEventListener("click", function () {
   score = 20;
-  randomNumber = Math.trunc(Math.random() * 20) + 1;
 
-  document.querySelector("body").style.backgroundColor = "#222";
-  document.querySelector(".number").style.width = "15rem";
-  document.querySelector(".score").textContent = score;
-  message.textContent = "start guessing..";
-  number.textContent = "?";
-  guess.value = "";
+  setRandomNumber();
+  setBackgroundColor("#222");
+  setNumberWidth("15rem");
+  showRandomNumber("?");
+  showMessage("Start guessing..");
+  showScore(score);
+  resetGuess();
 });
