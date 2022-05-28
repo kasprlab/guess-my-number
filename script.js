@@ -20,6 +20,8 @@ checkBtn.addEventListener("click", function () {
     } else if (+guess.value === randomNumber) {
       message.textContent = "win";
       number.textContent = randomNumber;
+      document.querySelector("body").style.backgroundColor = "#60b347";
+      document.querySelector(".number").style.width = "25rem";
       highScore = score;
       document.querySelector(".highscore").textContent = highScore;
     } else if (+guess.value < randomNumber) {
@@ -45,6 +47,8 @@ againBtn.addEventListener("click", function () {
   score = 20;
   randomNumber = Math.trunc(Math.random() * 20) + 1;
 
+  document.querySelector("body").style.backgroundColor = "#222";
+  document.querySelector(".number").style.width = "15rem";
   document.querySelector(".score").textContent = score;
   message.textContent = "start guessing..";
   number.textContent = "?";
