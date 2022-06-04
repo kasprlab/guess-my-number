@@ -30,5 +30,5 @@ Default setup
 
 - add winning ui feature (done)
 - refactoring code with DRY principle and functional programming (done)
+- responsive design (done)
 - publish in GitHub
-- responsive design
