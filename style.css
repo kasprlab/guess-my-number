@@ -30,7 +30,7 @@ header {
 
 @media (max-width: 400px) {
   header {
-    height: 25vh;
+    height: 30vh;
   }
 }
 
