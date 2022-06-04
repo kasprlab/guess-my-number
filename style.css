@@ -38,11 +38,35 @@ h1 {
   transform: translate(-50%, -50%);
 }
 
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
 .between {
   position: absolute;
   font-size: 1.4rem;
   top: 2rem;
   right: 2rem;
+}
+
+@media (max-width: 1000px) {
+  .between {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .between {
+    font-size: 1rem;
+  }
 }
 
 .number {
@@ -58,8 +82,41 @@ h1 {
   transform: translate(-50%, 50%);
 }
 
+@media (max-width: 1000px) {
+  .number {
+    font-size: 4rem;
+    width: 13rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .number {
+    font-size: 3rem;
+    width: 10rem;
+  }
+}
+
 .number.win {
   width: 25rem;
+}
+
+@media (max-width: 600px) {
+  .number {
+    font-size: 3rem;
+    width: 10rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .number.win {
+    width: 20rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .number.win {
+    width: 15rem;
+  }
 }
 
 main {
@@ -68,6 +125,14 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+@media (max-width: 400px) {
+  main {
+    flex-direction: column-reverse;
+    margin-top: 3rem;
+    justify-content: space-evenly;
+  }
 }
 
 .left {
@@ -90,14 +155,47 @@ main {
   display: block;
 }
 
+@media (max-width: 1000px) {
+  .guess {
+    font-size: 4rem;
+    width: 21rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .guess {
+    font-size: 3.5rem;
+    width: 17rem;
+  }
+}
+
 .right {
   width: 52rem;
   font-size: 2rem;
 }
 
+@media (max-width: 1000px) {
+  .right {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .right {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+}
+
 .message {
   margin-bottom: 8rem;
   height: 3rem;
+}
+
+@media (max-width: 400px) {
+  .message {
+    margin-bottom: 2rem;
+  }
 }
 
 .label-score {
@@ -112,6 +210,20 @@ main {
   background-color: #eee;
   color: #222;
   cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  .btn {
+    font-size: 1.5rem;
+    padding: 1.7rem 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .btn {
+    font-size: 1rem;
+    padding: 1.5rem 2rem;
+  }
 }
 
 .btn:hover {

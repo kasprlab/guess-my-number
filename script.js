@@ -1,6 +1,7 @@
 let randomNumber;
 let score = 20;
 let highScore = 0;
+let winningState = false;
 
 const checkBtn = document.querySelector(".check");
 const againBtn = document.querySelector(".again");
@@ -25,16 +26,21 @@ const resetGuess = function () {
   document.querySelector(".guess").value = "";
 };
 
-const setBackgroundColor = function (color) {
-  document.querySelector("body").style.backgroundColor = color;
-};
-
-const setNumberWidth = function (width) {
-  document.querySelector(".number").style.width = width;
-};
-
 const setRandomNumber = function () {
   randomNumber = Math.trunc(Math.random() * 20) + 1;
+};
+
+const setWinningState = function () {
+  if (!winningState) {
+    document.querySelector(".number").classList.remove("win");
+    document.querySelector("body").classList.remove("win");
+  }
+
+  if (winningState) {
+    document.querySelector(".number").classList.add("win");
+    document.querySelector("body").classList.add("win");
+    winningState = false;
+  }
 };
 
 setRandomNumber();
@@ -47,12 +53,12 @@ checkBtn.addEventListener("click", function () {
       showMessage("⛔️ Wrong input. Try again!");
     } else if (guess === randomNumber) {
       highScore = score;
+      winningState = true;
 
       showRandomNumber(randomNumber);
       showMessage("You win! 🏆");
       showHighScore(highScore);
-      setBackgroundColor("#60b347");
-      setNumberWidth("25rem");
+      setWinningState();
     } else if (guess !== randomNumber) {
       guess < randomNumber
         ? showMessage("📉 Too low")
@@ -72,10 +78,9 @@ againBtn.addEventListener("click", function () {
   score = 20;
 
   setRandomNumber();
-  setBackgroundColor("#222");
-  setNumberWidth("15rem");
   showRandomNumber("?");
   showMessage("Start guessing..");
   showScore(score);
   resetGuess();
+  setWinningState();
 });
