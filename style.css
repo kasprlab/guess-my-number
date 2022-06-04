@@ -28,6 +28,12 @@ header {
   border-bottom: 7px solid #eee;
 }
 
+@media (max-width: 400px) {
+  header {
+    height: 25vh;
+  }
+}
+
 h1 {
   font-size: 4rem;
   text-align: center;
